@@ -1,2 +1,5 @@
-# oksidant1_microservices
-oksidant1 microservices repository
+## Домашняя работа № 16
+
+### Самостоятельное задание 1
+Установлен `docker` и подготовлен образ `otus-reddit:1.0`
+Создан файл Dockerfile с помощью которого создавался образ указанный выше.
