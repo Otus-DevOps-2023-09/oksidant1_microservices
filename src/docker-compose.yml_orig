@@ -5,27 +5,27 @@ services:
     volumes:
       - post_db:/data/db
     networks:
-      - ${NETWORK_NAME}
+      - reddit
   ui:
     build: ./ui
     image: ${USERNAME}/ui:1.0
     ports:
       - 9292:9292/tcp
     networks:
-      - ${NETWORK_NAME}
+      - reddit
   post:
     build: ./post-py
     image: ${USERNAME}/post:1.1
     networks:
-      - ${NETWORK_NAME}
+      - reddit
   comment:
     build: ./comment
     image: ${USERNAME}/comment:1.0
     networks:
-      - ${NETWORK_NAME}
+      - reddit
 
 volumes:
   post_db:
 
 networks:
-  ${NETWORK_NAME}:
+  reddit:
