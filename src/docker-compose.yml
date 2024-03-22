@@ -6,6 +6,7 @@ services:
       - post_db:/data/db
     networks:
       - back_net
+      - prom
   ui:
     build: ./ui
     image: ${USERNAME}/ui:${UIVERISON}
@@ -13,22 +14,39 @@ services:
       - ${PORT}:9292/tcp
     networks:
       - front_net
+      - prom
   post:
     build: ./post-py
     image: ${USERNAME}/post:${POSTVERSION}
     networks:
       - front_net
       - back_net
+      - prom
   comment:
     build: ./comment
     image: ${USERNAME}/comment:${COMMENTVERSION}
     networks:
       - front_net
       - back_net
+      - prom
+  prometheus:
+    image: ${USERNAME}/prometheus
+    ports:
+      - '9090:9090'
+    volumes:
+      - prometheus_data:/prometheus
+    command: # Передаем доп параметры в командной строке
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention=1d' # Задаем время хранения метрик в 1 день
+    networks:
+      - prom
 
 volumes:
+  prometheus_data:
   post_db:
 
 networks:
   front_net:
   back_net:
+  prom:

@@ -1,7 +1,0 @@
-REPOSITORY                                 TAG       IMAGE ID       CREATED              SIZE
-egupov/ubuntu-tmp-file                     latest    a9d555c603b0   About a minute ago   63.2MB
-registry.docker.s2.eirc:5000/eirc-ws-dju   2.0.5     f897d3689409   2 months ago         550MB
-alpine                                     latest    7e01a0d0a1dc   5 months ago         7.33MB
-python                                     latest    cd9c1d09c087   6 months ago         1.01GB
-ubuntu                                     18.04     f9a80a55f492   7 months ago         63.2MB
-hello-world                                latest    d2c94e258dcb   8 months ago         13.3kB
