@@ -8,7 +8,7 @@ services:
       - back_net
       - prom
   ui:
-    build: ./ui
+    build: ../src/ui
     image: ${USERNAME}/ui:${UIVERISON}
     ports:
       - ${PORT}:9292/tcp
@@ -16,14 +16,14 @@ services:
       - front_net
       - prom
   post:
-    build: ./post-py
+    build: ../src/post-py
     image: ${USERNAME}/post:${POSTVERSION}
     networks:
       - front_net
       - back_net
       - prom
   comment:
-    build: ./comment
+    build: ../src/comment
     image: ${USERNAME}/comment:${COMMENTVERSION}
     networks:
       - front_net
